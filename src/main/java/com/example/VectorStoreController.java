@@ -53,18 +53,6 @@ public class VectorStoreController {
         return ResponseEntity.created(location()).build();
     }
 
-    @PostMapping("embed/reset")
-    public ResponseEntity<?> reset() {
-        vectorStore.reset();
-        return ResponseEntity.created(location()).build();
-    }
-
-    @GetMapping("/embed")
-    public ResponseEntity<EmbeddingCount> countEmbeddings() {
-        int count = vectorStore.countEmbeddings();
-        return ResponseEntity.ok(new EmbeddingCount(count));
-    }
-
     @PostMapping("/chat")
     public ResponseEntity<ChatResponse> chat(@RequestBody ChatRequest chatRequest) throws Exception {
         ChatWorkflow workflow = ChatWorkflow.builder()
@@ -78,6 +66,19 @@ public class VectorStoreController {
 
         String response = workflow.call();
         return ResponseEntity.created(location()).body(new ChatResponse(response));
+    }
+
+
+    @PostMapping("embed/reset")
+    public ResponseEntity<?> reset() {
+        vectorStore.reset();
+        return ResponseEntity.created(location()).build();
+    }
+
+    @GetMapping("/embed")
+    public ResponseEntity<EmbeddingCount> countEmbeddings() {
+        int count = vectorStore.countEmbeddings();
+        return ResponseEntity.ok(new EmbeddingCount(count));
     }
 
     public record EmbeddingCount(int count) {

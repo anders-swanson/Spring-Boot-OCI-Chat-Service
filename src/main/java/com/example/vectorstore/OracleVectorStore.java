@@ -131,7 +131,8 @@ public class OracleVectorStore {
 
     public List<Embedding> search(SearchRequest searchRequest) {
         // This query is designed to:
-        // 1. Calculate a similarity score for each row based on the cosine distance between the embedding column and a given vector using the "vector_distance" function.
+        // 1. Calculate a similarity score for each row based on the cosine distance between the embedding column
+        // and a given vector using the "vector_distance" function.
         // 2. Order the rows by this similarity score in descending order.
         // 3. Filter out rows with a similarity score below a specified threshold.
         // 4. Return only the top rows that meet the criteria.

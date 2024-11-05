@@ -1,13 +1,10 @@
 package com.example;
 
-import javax.sql.DataSource;
 import java.io.IOException;
 import java.nio.file.Paths;
 
 import com.example.chat.OCIChatService;
-import com.example.documentloader.OCIDocumentLoader;
 import com.example.embeddingmodel.OCIEmbeddingModel;
-import com.example.vectorstore.OracleVectorStore;
 import com.oracle.bmc.auth.BasicAuthenticationDetailsProvider;
 import com.oracle.bmc.auth.ConfigFileAuthenticationDetailsProvider;
 import com.oracle.bmc.generativeaiinference.GenerativeAiInferenceClient;
